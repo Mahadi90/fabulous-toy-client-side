@@ -89,14 +89,14 @@ const Login = () => {
               </div>
               <div className="form-control mt-2">
                 <button className="btn btn-accent">Login</button>
+                <p className="text-green-500">{success}</p>
+              <p className="text-red-500">{error}</p>
               </div>
               <div className="divider">OR</div>
               <button onClick={handleGoogleSignIn} className="btn btn-block btn-outline btn-error font-bold rounded-full">
                 <FaGoogle className="w-4 h-4 me-2"></FaGoogle> Sign in with
                 GOOGLE
               </button>
-              <p className="text-green-500">{success}</p>
-              <p className="text-red-500">{error}</p>
             </form>
           </div>
         </div>
