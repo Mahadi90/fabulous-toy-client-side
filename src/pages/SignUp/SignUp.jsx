@@ -5,6 +5,19 @@ import { Link } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 
 const SignUp = () => {
+
+    const handleSignUp = event => {
+        event.preventDefault()
+
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const photo = form.photo.value;
+
+        console.log(name, email, password, photo)
+    }
+
   return (
     <>
       <h1 className="text-5xl bg-base-200 font-bold pt-4 text-center">
@@ -16,7 +29,7 @@ const SignUp = () => {
             <Lottie animationData={car} loop={true} />
           </div>
           <div className="card w-full pt-0 shadow-2xl bg-base-100">
-            <div className="card-body">
+            <form onSubmit={handleSignUp} className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Name</span>
@@ -80,7 +93,7 @@ const SignUp = () => {
                 <FaGoogle className="w-4 h-4 me-2"></FaGoogle> Sign in with
                 GOOGLE
               </button>
-            </div>
+            </form>
           </div>
         </div>
       </div>
