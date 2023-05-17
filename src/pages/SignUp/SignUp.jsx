@@ -4,11 +4,11 @@ import Lottie from "lottie-react";
 import { Link } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 
-const Login = () => {
+const SignUp = () => {
   return (
     <>
       <h1 className="text-5xl bg-base-200 font-bold pt-4 text-center">
-        Login Please!
+        Sign Up!
       </h1>
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row-reverse">
@@ -17,6 +17,18 @@ const Login = () => {
           </div>
           <div className="card w-full pt-0 shadow-2xl bg-base-100">
             <div className="card-body">
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Name</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="Name"
+                  name="name"
+                  className="input input-bordered input-accent"
+                  required
+                />
+              </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -39,17 +51,29 @@ const Login = () => {
                   placeholder="password"
                   className="input input-bordered input-accent"
                 />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Email</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="photo URL"
+                  name="photo"
+                  className="input input-bordered input-accent"
+                  required
+                />
                 <label className="label">
                   <p className="label-text-alt">
-                    Are you new to fabulous toys? please{" "}
-                    <Link to="/signup" className="link text-blue-500">
-                      Sign Up
+                    Already have an account? please{" "}
+                    <Link to="/login" className="link text-blue-500">
+                      Login
                     </Link>
                   </p>
                 </label>
               </div>
               <div className="form-control mt-2">
-                <button className="btn btn-accent">Login</button>
+                <button className="btn btn-accent">Sign Up</button>
               </div>
               <div className="divider">OR</div>
               <button className="btn btn-block btn-outline btn-error font-bold rounded-full">
@@ -64,4 +88,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;
