@@ -1,10 +1,49 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import car from "../../../public/carlogin.json";
 import Lottie from "lottie-react";
 import { Link } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
+import { AuthContext } from "../../providers/Authproviders";
 
 const Login = () => {
+
+    const { signIn, googleSignIn } = useContext(AuthContext)
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('')
+
+    const handleLogin = event => {
+        event.preventDefault()
+
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+    
+
+        // console.log(email, password)
+        setError('')
+        setSuccess('')
+     signIn(email, password)
+     .then(result => {
+        const loggedUser =  result.user;
+        console.log(loggedUser)
+        form.reset()
+        setSuccess('Login Successfull')
+     })
+     .catch(error => {
+        console.log(error)
+        setError(error.message)
+     })
+    }
+
+    const handleGoogleSignIn = () => {
+        googleSignIn()
+        .then(result => {
+            console.log(result.user)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+    }
   return (
     <>
       <h1 className="text-5xl bg-base-200 font-bold pt-4 text-center">
@@ -16,7 +55,7 @@ const Login = () => {
             <Lottie animationData={car} loop={true} />
           </div>
           <div className="card w-full pt-0 shadow-2xl bg-base-100">
-            <div className="card-body">
+            <form onSubmit={handleLogin} className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -52,11 +91,13 @@ const Login = () => {
                 <button className="btn btn-accent">Login</button>
               </div>
               <div className="divider">OR</div>
-              <button className="btn btn-block btn-outline btn-error font-bold rounded-full">
+              <button onClick={handleGoogleSignIn} className="btn btn-block btn-outline btn-error font-bold rounded-full">
                 <FaGoogle className="w-4 h-4 me-2"></FaGoogle> Sign in with
                 GOOGLE
               </button>
-            </div>
+              <p className="text-green-500">{success}</p>
+              <p className="text-red-500">{error}</p>
+            </form>
           </div>
         </div>
       </div>

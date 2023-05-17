@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import car from "../../../public/carlogin.json";
 import Lottie from "lottie-react";
 import { Link } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
+import { AuthContext } from "../../providers/Authproviders";
 
 const SignUp = () => {
+
+    const { createUser } = useContext(AuthContext)
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('')
 
     const handleSignUp = event => {
         event.preventDefault()
@@ -15,7 +20,20 @@ const SignUp = () => {
         const password = form.password.value;
         const photo = form.photo.value;
 
-        console.log(name, email, password, photo)
+        // console.log(name, email, password, photo)
+        setError('')
+        setSuccess('')
+        createUser(email, password)
+        .then(result => {
+            const createdUser = result.user;
+            console.log(createdUser)
+            form.reset()
+            setSuccess('Sign Up Successfull')
+        })
+        .catch(error => {
+            console.log(error)
+            setError(error.message)
+        })
     }
 
   return (
@@ -87,6 +105,8 @@ const SignUp = () => {
               </div>
               <div className="form-control mt-2">
                 <button className="btn btn-accent">Sign Up</button>
+                <p className="text-green-500">{success}</p>
+              <p className="text-red-500">{error}</p>
               </div>
               <div className="divider">OR</div>
               <button className="btn btn-block btn-outline btn-error font-bold rounded-full">
