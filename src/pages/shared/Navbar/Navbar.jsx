@@ -42,7 +42,7 @@ const listItem = <>
           </div>
           <div className="flex items-center">
            <img className="w-16 h-16" src={logo} alt="" />
-           <a className="btn btn-ghost normal-case text-xl">FABULOUS TOYS</a>
+           <a className="btn btn-ghost normal-case text-xl"><span className="text-red-500">FAB</span>ULOUS-<span className="text-red-500">T</span>OYS</a>
           </div>
           
         </div>
