@@ -11,13 +11,13 @@ const Navbar = () => {
       <Link className="mx-4" to="/blogs">
         Blogs
       </Link>
-      <Link className="mx-4" to="allToys">
+      <Link className="mx-4" to="/allToys">
         All Toys
       </Link>
-      <Link className="mx-4" to="myToys">
+      <Link className="mx-4" to="/myToys">
         My Toys
       </Link>
-      <Link className="mx-4" to="addToys">
+      <Link className="mx-4" to="/addToys">
         Add A Toys
       </Link>
     </>
@@ -63,7 +63,7 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{listItem}</ul>
         </div>
         <div className="navbar-end">
-          <Link className="bg-red-500 px-4 py-2 font-bold text-white">
+          <Link to='/login' className="bg-red-500 px-4 py-2 font-bold text-white">
             Login
           </Link>
         </div>
