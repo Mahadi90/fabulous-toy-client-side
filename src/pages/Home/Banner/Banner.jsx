@@ -8,7 +8,7 @@ import slider4 from "../../../assets/images/slider4.jpg";
 const Banner = () => {
   return (
     <div>
-      <div className="carousel w-full h-[110vh] lg:h-[90vh]  mt-2 ">
+      <div className="carousel w-full h-[120vh] lg:h-[90vh]  mt-2 ">
         {/* slider-1 */}
         <div id="item1" className="carousel-item w-full h-full relative">
           <img src={slider1} className="w-full rounded-xl" />
@@ -27,7 +27,7 @@ const Banner = () => {
 
         {/* slider-2 */}
         <div id="item2" className="carousel-item w-full relative">
-          <img src={slider2} className="w-full rounded-xl" />
+          <img src={slider3} className="w-full rounded-xl" />
           <div className="absolute h-full lg:pt-24 rounded-xl left-0 top-0 bg-gradient-to-r from-[#151515] to-[rgba(26, 26, 26, 0)] text-white p-4">
             <div className="w-1/2 h-full">
             <h3 className="text-2xl font-bold text-red-500">Looking for car toys? This is the right place</h3>
@@ -43,7 +43,7 @@ const Banner = () => {
 
         {/* slider-3 */}
         <div id="item3" className="carousel-item w-full relative">
-          <img src={slider3} className="w-full rounded-xl" />
+          <img src={slider2} className="w-full rounded-xl" />
           <div className="absolute h-full lg:pt-24 rounded-xl left-0 top-0 bg-gradient-to-r from-[#151515] to-[rgba(26, 26, 26, 0)] text-white p-4">
             <div className="w-1/2 h-full">
             <h3 className="text-2xl font-bold text-red-500">Looking for car toys? This is the right place</h3>
