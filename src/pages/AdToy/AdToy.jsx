@@ -1,19 +1,53 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../providers/Authproviders';
 
 const AdToy = () => {
+
+const {user} = useContext(AuthContext)
+
+const handleAddToys = event => {
+    event.preventDefault()
+
+    const form = event.target;
+    const toyName = form.toyName.value;
+    const photo = form.photo.value;
+    const sellerName= form.sellerName.value;
+    const email = form.email.value;
+    const price = form.price.value;
+    const rating = form.rating.value;
+    const quantity = form.quantity.value;
+    const subCategory = form.subCategory.value;
+    const detail = form.detail.value;
+
+    const toyInfo = {toyName, photo, sellerName, email, price, rating, quantity, subCategory, detail}
+    console.log(toyInfo)
+
+    fetch('http://localhost:5000/cars', {
+        method : 'POST',
+        headers: {
+            'content-type' : 'application/json'
+        },
+        body: JSON.stringify(toyInfo)
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data)
+    })
+}
+
     return (
         <div className='my-8'>
          <h2 className='text-3xl font-bold text-center'>Add your own Toy</h2>
             <p className='text-center text-gray-600 font-semibold'>This site provide all of car toys.You can add your own car toys</p>  
-            <form className='w-full lg:w-3/4 mx-auto border p-10 rounded space-y-3 mt-4 bg-gray-200'>
+            <form onSubmit={handleAddToys} className='w-full lg:w-3/4 mx-auto border p-10 rounded-lg space-y-3 mt-4 bg-gray-200'>
               <div className='lg:flex justify-between gap-4'>
               <input type="text" placeholder="Toy Name" name='toyName' className="input input-bordered input-accent w-full" />
               <input type="text" placeholder="photo URL" name='photo' className="input input-bordered input-accent w-full mt-2 lg:mt-0" />
               </div>
 
               <div className='lg:flex justify-between gap-4'>
-              <input type="text" placeholder="Seller name" name='sellerName' className="input input-bordered input-accent w-full" />
-              <input type="email" placeholder="Seller Email" name='email' className="input input-bordered input-accent w-full mt-2 lg:mt-0" />
+              <input type="text" placeholder="Seller name" defaultValue={user.displayName? user.displayName : ''} name='sellerName' className="input input-bordered input-accent w-full" />
+              <input type="email" placeholder="Seller Email" defaultValue={user.email ? user.email: '' } name='email' className="input input-bordered input-accent w-full mt-2 lg:mt-0" />
               </div>
 
               <div className='lg:flex justify-between gap-4'>
