@@ -31,7 +31,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="navbar bg-neutral text-neutral-content px-4">
+      <div className="navbar bg-neutral text-neutral-content px-14">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -92,7 +92,7 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           {user ? (
-            <div className="tooltip flex tooltip-bottom" data-tip={user.displayName && user.displayName}>
+            <div className="tooltip flex items-center tooltip-bottom" data-tip={user.displayName && user.displayName}>
               {user.photoURL ? (
                 <img
                   className="h-10 w-10 me-2 rounded-full"
