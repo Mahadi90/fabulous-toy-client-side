@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import car from "../../../public/carlogin.json";
+import car from "../../assets/carlogin.json";
 import Lottie from "lottie-react";
 import { Link } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";

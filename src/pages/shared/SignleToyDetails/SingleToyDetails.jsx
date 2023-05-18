@@ -5,7 +5,7 @@ const SingleToyDetails = ({item}) => {
     console.log(item)
     return (
         <div>
-            <h2>hhh</h2>
+            <h2>details</h2>
         </div>
     );
 };

@@ -12,7 +12,7 @@ const MyToys = () => {
       .then((data) => {
         setMyToys(data);
       });
-  }, []);
+  }, [user]);
 
   return (
     <div className="my-8 mx-2 lg:mx-8">

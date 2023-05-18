@@ -1,11 +1,23 @@
-import React from "react";
-import { useLoaderData } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import SingleAllToys from "./SingleAllToys";
 
 const AllToys = () => {
+  const [searchText, setSearchText] = useState("");
+  const [allToys, setAllToys] = useState([])
+//   const allToys = useLoaderData();
+  //    console.log(allToys)
 
-   const allToys = useLoaderData()
-//    console.log(allToys)
+ useEffect(() => {
+    fetch('http://localhost:5000/allToys')
+    .then(res =>  res.json())
+    .then(data => setAllToys(data))
+ },[])
+
+  const handleSearchToy = () => {
+    fetch(`http://localhost:5000/toySearchByName/${searchText}`)
+    .then(res => res.json())
+    .then(data => setAllToys(data))
+  }
 
   return (
     <div className="my-8 mx-2 lg:mx-8">
@@ -13,10 +25,20 @@ const AllToys = () => {
       <p className="text-center text-gray-600 font-semibold">
         You can choose any kinds of toys and buy anything.
       </p>
-      
+
       <div className="flex justify-center my-6">
-      <input type="text" placeholder="Type here" className="input input-bordered input-primary w-full max-w-xs" />
-      <input type="submit" value='Search'  className="rounded-lg bg-indigo-500 px-10 ms-2 font-semibold text-white cursor-pointer"/>
+        <input
+        onChange={(e) => setSearchText(e.target.value)}
+          type="text"
+          placeholder="Type here"
+          className="input input-bordered input-primary w-full max-w-xs"
+        />
+        <input
+        onClick={handleSearchToy}
+          type="submit"
+          value="Search"
+          className="rounded-lg bg-indigo-500 px-10 ms-2 font-semibold text-white cursor-pointer"
+        />
       </div>
       <div className="overflow-x-auto">
         <table className="table table-zebra w-full">
@@ -33,13 +55,13 @@ const AllToys = () => {
             </tr>
           </thead>
           <tbody>
-           {
-            allToys.map((singleToys, index) => <SingleAllToys
-            key={singleToys._id}
-            singleToys = {singleToys}
-            index={index}
-            ></SingleAllToys>)
-           }
+            {allToys.map((singleToys, index) => (
+              <SingleAllToys
+                key={singleToys._id}
+                singleToys={singleToys}
+                index={index}
+              ></SingleAllToys>
+            ))}
           </tbody>
         </table>
       </div>
@@ -48,5 +70,3 @@ const AllToys = () => {
 };
 
 export default AllToys;
-
-

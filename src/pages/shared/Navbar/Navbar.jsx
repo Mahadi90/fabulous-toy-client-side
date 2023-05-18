@@ -93,7 +93,7 @@ const Navbar = () => {
         <div className="navbar-end">
           {user ? (
             <div className="tooltip flex items-center tooltip-bottom" data-tip={user.displayName && user.displayName}>
-              {user.photoURL ? (
+              {user?.photoURL ? (
                 <img
                   className="h-10 w-10 me-2 rounded-full"
                   src={user.photoURL}
