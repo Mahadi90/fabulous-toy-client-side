@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import Swal from 'sweetalert2';
 import { AuthContext } from '../../providers/Authproviders';
 
 const AdToy = () => {
@@ -31,7 +32,15 @@ const handleAddToys = event => {
     })
     .then(res => res.json())
     .then(data => {
-        console.log(data)
+        // console.log(data)
+        if(data.insertedId){
+            Swal.fire({
+                icon: 'success',
+                title: 'Done',
+                text: 'Your Toy added successfully!',
+              })
+              form.reset()
+        }
     })
 }
 
@@ -46,8 +55,8 @@ const handleAddToys = event => {
               </div>
 
               <div className='lg:flex justify-between gap-4'>
-              <input type="text" placeholder="Seller name" defaultValue={user.displayName? user.displayName : ''} name='sellerName' className="input input-bordered input-accent w-full" />
-              <input type="email" placeholder="Seller Email" defaultValue={user.email ? user.email: '' } name='email' className="input input-bordered input-accent w-full mt-2 lg:mt-0" />
+              <input type="text" placeholder="Seller name" defaultValue={user?.displayName? user.displayName : ''} name='sellerName' className="input input-bordered input-accent w-full" />
+              <input type="email" placeholder="Seller Email" defaultValue={user?.email ? user.email: '' } name='email' className="input input-bordered input-accent w-full mt-2 lg:mt-0" />
               </div>
 
               <div className='lg:flex justify-between gap-4'>
