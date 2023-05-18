@@ -1,14 +1,35 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import SingleToyDetails from "../../shared/SignleToyDetails/SingleToyDetails";
 const Category = () => {
   const [categories, setCategories] = useState([]);
+  const [selectedItem, setSelectedItem] = useState(null);
 
   useEffect(() => {
     fetch("http://localhost:5000/category")
       .then((res) => res.json())
       .then((data) => setCategories(data));
   }, []);
+
+
+
+  const handleItemSelect = (title) => {
+    const item = getItemByTitle(title);
+    setSelectedItem(item);
+  };
+
+  const getItemByTitle = (title) => {
+    // Search for the item in the categories array based on the title
+    for (const category of categories) {
+      const foundItem = category.items.find((item) => item.title === title);
+      if (foundItem) {
+        return foundItem;
+      }
+    }
+    return null;
+  };
 
   return (
     <div className="my-12">
@@ -44,7 +65,7 @@ const Category = () => {
                 <p className="text-gray-500 font-semibold">Name: {item.title}</p>
                 <p className="text-gray-500 font-semibold">Price: ${item.price}</p>
                 <p className="text-gray-500 font-semibold">Rating: {item.rating}</p>
-                <button className="bg-red-500 px-4 py-2 text-white font-bold">Veiw Details</button>
+                <button  onClick={() => handleItemSelect(item.title)} className="bg-red-500 px-4 py-2 text-white font-bold"><Link to='/singleToydetails'>View Details</Link></button>
                 </div>
               </li>
             ))}

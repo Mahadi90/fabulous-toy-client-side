@@ -60,7 +60,7 @@ const Navbar = () => {
                   <Link className="mx-4" to="/myToys">
                     My Toys
                   </Link>
-                  <Link className="mx-4" to="/addToys">
+                  <Link className="mx-4" to="/addToy">
                     Add A Toy
                   </Link>
                 </>
@@ -83,7 +83,7 @@ const Navbar = () => {
                 <Link className="mx-4" to="/myToys">
                   My Toys
                 </Link>
-                <Link className="mx-4" to="/addToys">
+                <Link className="mx-4" to="/addToy">
                   Add A Toy
                 </Link>
               </>
