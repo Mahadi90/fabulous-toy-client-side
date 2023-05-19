@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
+import Swal from "sweetalert2";
 import { AuthContext } from "../../providers/Authproviders";
 import SingleMyToys from "./SingleMyToys";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [myToys, setMyToys] = useState([]);
+  // const [users, setUsers] = useState(myToys)
 
   useEffect(() => {
     fetch(`http://localhost:5000/myToys/${user?.email}`)
@@ -13,6 +15,29 @@ const MyToys = () => {
         setMyToys(data);
       });
   }, [user]);
+
+  
+  // console.log(users)
+
+ const handleDeleteToy = _id => {
+  fetch(`http://localhost:5000/allToys/${_id}`, {
+      method: 'DELETE'
+  })
+  .then(res => res.json())
+  .then(data =>  {
+      console.log(data)
+      if(data.deletedCount > 0){
+          Swal.fire({
+              icon: 'success',
+              title: 'Done',
+              text: 'Your Toy deleted successfully!',
+            })
+        const remaining = myToys.filter(toy => toy._id !== _id);
+        setMyToys(remaining)
+      }
+  })
+ }
+
 
   return (
     <div className="my-8 mx-2 lg:mx-8">
@@ -42,6 +67,7 @@ const MyToys = () => {
             key={myToy._id}
             myToy={myToy}
             index={index}
+            handleDeleteToy={handleDeleteToy}
             ></SingleMyToys>)
            }
           </tbody>
