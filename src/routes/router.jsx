@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
 import AdToy from "../pages/AdToy/AdToy";
 import AllToys from "../pages/AllToys/AllToys";
+import Blog from "../pages/Blog/Blog";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import SingleCategoryDeatils from "../pages/Home/Category/SingleCategoryDeatils";
 import Home from "../pages/Home/Home/Home";
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
                 path: '/singlecategory/:id',
                 element: <SingleCategoryDeatils></SingleCategoryDeatils>,
                 loader : ({params}) => fetch(`http://localhost:5000/category/${params.id}`)
+            },
+            {
+                path: '/blog',
+                element: <Blog></Blog>
             }
         ]
     }

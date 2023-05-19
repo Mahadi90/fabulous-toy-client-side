@@ -7,7 +7,7 @@ const AllToys = () => {
   const [allToys, setAllToys] = useState([])
   const [rowsToShow, setRowsToShow] = useState(20);
 
-  useTitle('AllToys')
+  useTitle('All Toys')
 
  useEffect(() => {
     fetch('http://localhost:5000/allToys')
