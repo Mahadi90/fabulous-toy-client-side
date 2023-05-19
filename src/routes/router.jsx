@@ -2,12 +2,14 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
 import AdToy from "../pages/AdToy/AdToy";
 import AllToys from "../pages/AllToys/AllToys";
+import SingleCategoryDeatils from "../pages/Home/Category/SingleCategoryDeatils";
 import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login";
 import MyToys from "../pages/MyToys/MyToys";
 import SingleToyDetails from "../pages/shared/SignleToyDetails/SingleToyDetails";
 import SignUp from "../pages/SignUp/SignUp";
 import UpdateToy from "../pages/UpdateToys/UpdateToy";
+import PrivateRotes from "./PrivateRotes";
 
 const router = createBrowserRouter([
     {
@@ -28,7 +30,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'singleToydetails/:id',
-                element: <SingleToyDetails></SingleToyDetails>,
+                element: <PrivateRotes><SingleToyDetails></SingleToyDetails></PrivateRotes>,
                 loader: ({params}) => fetch(`http://localhost:5000/allToys/${params.id}`)
             },
             {
@@ -48,6 +50,11 @@ const router = createBrowserRouter([
                 path: '/updateToy/:id',
                 element: <UpdateToy></UpdateToy>,
                 loader : ({params}) => fetch(`http://localhost:5000/allToys/${params.id}`)
+            },
+            {
+                path: '/singlecategory',
+                element: <SingleCategoryDeatils></SingleCategoryDeatils>,
+                // loader : ({params}) => fetch(`http://localhost:5000/category`)
             }
         ]
     }

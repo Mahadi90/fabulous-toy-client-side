@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import car from "../../assets/carlogin.json";
 import Lottie from "lottie-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../../providers/Authproviders";
 
@@ -9,7 +9,11 @@ const Login = () => {
 
     const { signIn, googleSignIn } = useContext(AuthContext)
     const [error, setError] = useState('');
-    const [success, setSuccess] = useState('')
+    const [success, setSuccess] = useState('');
+    const navigate = useNavigate()
+    const location = useLocation()
+
+    const from = location.state?.from?.pathname || '/'
 
     const handleLogin = event => {
         event.preventDefault()
@@ -28,6 +32,7 @@ const Login = () => {
         console.log(loggedUser)
         form.reset()
         setSuccess('Login Successfull')
+        navigate(from, {replace : true})
      })
      .catch(error => {
         console.log(error)
@@ -39,6 +44,7 @@ const Login = () => {
         googleSignIn()
         .then(result => {
             console.log(result.user)
+            navigate(from, {replace : true})
         })
         .catch(error => {
             console.log(error)
