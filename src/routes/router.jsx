@@ -52,9 +52,9 @@ const router = createBrowserRouter([
                 loader : ({params}) => fetch(`http://localhost:5000/allToys/${params.id}`)
             },
             {
-                path: '/singlecategory',
+                path: '/singlecategory/:id',
                 element: <SingleCategoryDeatils></SingleCategoryDeatils>,
-                // loader : ({params}) => fetch(`http://localhost:5000/category`)
+                loader : ({params}) => fetch(`http://localhost:5000/category/${params.id}`)
             }
         ]
     }

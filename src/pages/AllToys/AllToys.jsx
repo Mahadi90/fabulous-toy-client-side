@@ -4,8 +4,9 @@ import SingleAllToys from "./SingleAllToys";
 const AllToys = () => {
   const [searchText, setSearchText] = useState("");
   const [allToys, setAllToys] = useState([])
-//   const allToys = useLoaderData();
-  //    console.log(allToys)
+  const [rowsToShow, setRowsToShow] = useState(20);
+
+  
 
  useEffect(() => {
     fetch('http://localhost:5000/allToys')
@@ -18,6 +19,11 @@ const AllToys = () => {
     .then(res => res.json())
     .then(data => setAllToys(data))
   }
+  const renderedRows = allToys.slice(0, rowsToShow); 
+
+  const handleShowMore = () => {
+    setRowsToShow(rowsToShow + 20); 
+  };
 
   return (
     <div className="my-8 mx-2 lg:mx-8">
@@ -55,7 +61,7 @@ const AllToys = () => {
             </tr>
           </thead>
           <tbody>
-            {allToys.map((singleToys, index) => (
+            {renderedRows.map((singleToys, index) => (
               <SingleAllToys
                 key={singleToys._id}
                 singleToys={singleToys}
@@ -64,6 +70,9 @@ const AllToys = () => {
             ))}
           </tbody>
         </table>
+        {rowsToShow < allToys.length && (
+        <button className="btn btn-block" onClick={handleShowMore}>Show More</button>
+      )}
       </div>
     </div>
   );

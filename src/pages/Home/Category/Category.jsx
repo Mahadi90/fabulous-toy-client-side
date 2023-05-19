@@ -14,7 +14,9 @@ const Category = () => {
   }, []);
 
 
-
+// const handleId = id => {
+//   console.log(id)
+// }
   
 
   return (
@@ -52,7 +54,7 @@ const Category = () => {
                 <p className="text-gray-500 font-semibold">Name: {item.title}</p>
                 <p className="text-gray-500 font-semibold">Price: ${item.price}</p>
                 <p className="text-gray-500 font-semibold">Rating: {item.rating}</p>
-                <button className="bg-red-500 px-4 py-2 text-white font-bold"><Link to='/singlecategory'>View Details</Link></button>
+                <button  className="bg-red-500 px-4 py-2 text-white font-bold"><Link to={`/singlecategory/${item.id}`}>View Details</Link></button>
                 </div>
               </li>
             ))}
@@ -60,15 +62,12 @@ const Category = () => {
         </TabPanel>
       ))}
       </Tabs>
-
-      {
-        categories.map(category => {
-          category.items.map(item => <SingleCategoryDeatils
-          key={item.id}
-          item={item}
-          ></SingleCategoryDeatils>)
-        })
-      }
+     {
+      <SingleCategoryDeatils
+      categories={categories}
+      ></SingleCategoryDeatils>
+     }
+    
     </div>
   );
 };

@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
+import { useLoaderData, useParams } from "react-router-dom";
 
-const SingleCategoryDeatils = ({item}) => {
- console.log(item.length)
+const SingleCategoryDeatils = () => {
 
-    return (
-        <div>
-            <h2>c</h2>
-        </div>
-    );
+
+  return (
+    <div>
+      <h2>c</h2>
+    </div>
+  );
 };
 
 export default SingleCategoryDeatils;
-
