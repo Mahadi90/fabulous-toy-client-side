@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import SingleCategoryDeatils from "./SingleCategoryDeatils";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 const Category = () => {
   const [categories, setCategories] = useState([]);
 
@@ -13,6 +16,9 @@ const Category = () => {
       .then((data) => setCategories(data));
   }, []);
 
+  useEffect(() => {
+    AOS.init(); // Initialize AoS
+  }, []);
 
 // const handleId = id => {
 //   console.log(id)
@@ -20,7 +26,7 @@ const Category = () => {
   
 
   return (
-    <div className="my-12">
+    <div data-aos="fade-right" className="my-12">
       <h2 className="text-3xl font-bold text-center">Shop By Category</h2>
       <p className="text-center text-gray-600 font-semibold">
         There are some sub categroy that you can go to visit

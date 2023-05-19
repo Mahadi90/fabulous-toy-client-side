@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import DiscountCard from "./DiscountCard";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Discount = () => {
 
@@ -13,8 +15,12 @@ const Discount = () => {
     })
   },[])
 
+  useEffect(() => {
+    AOS.init(); // Initialize AoS
+  }, []);
+
   return (
-    <div className="my-12">
+    <div data-aos="zoom-in" className="my-12">
       <h2 className="text-3xl font-bold text-center">Discount Area</h2>
       <p className="text-center text-gray-600 font-semibold">
        These All Toys have up to 70% discount.

@@ -45,7 +45,7 @@ const UpdateToy = () => {
            <p className='text-center text-gray-600 font-semibold'>Update price,Available quantity and details anything you need to change.</p>  
            <form onSubmit={handleUpdateToy}  className='w-full lg:w-3/4 mx-auto border p-10 rounded-lg space-y-3 mt-4 bg-gray-200'>
         
-             <h2 className='text-center text-gray-700 font-semibold text-3xl mb-4'>Please Update the value : {loadedToys.toyName}</h2>
+             <h2 className='text-center text-gray-700 font-semibold text-3xl mb-4'>Please Update the value of {loadedToys.toyName}</h2>
    
              <div className='lg:flex justify-between gap-4'>
              <input type="text" placeholder="Price" name='price' className="input input-bordered input-accent w-full" />
