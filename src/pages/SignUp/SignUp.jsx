@@ -4,12 +4,14 @@ import Lottie from "lottie-react";
 import { Link } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../../providers/Authproviders";
+import useTitle from "../../hooks/useTitle";
 
 const SignUp = () => {
 
     const { createUser } = useContext(AuthContext)
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('')
+    useTitle('Sign Up')
 
     const handleSignUp = event => {
         event.preventDefault()

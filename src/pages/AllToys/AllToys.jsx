@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import useTitle from "../../hooks/useTitle";
 import SingleAllToys from "./SingleAllToys";
 
 const AllToys = () => {
@@ -6,7 +7,7 @@ const AllToys = () => {
   const [allToys, setAllToys] = useState([])
   const [rowsToShow, setRowsToShow] = useState(20);
 
-  
+  useTitle('AllToys')
 
  useEffect(() => {
     fetch('http://localhost:5000/allToys')

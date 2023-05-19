@@ -4,6 +4,7 @@ import Lottie from "lottie-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../../providers/Authproviders";
+import useTitle from "../../hooks/useTitle";
 
 const Login = () => {
 
@@ -12,6 +13,7 @@ const Login = () => {
     const [success, setSuccess] = useState('');
     const navigate = useNavigate()
     const location = useLocation()
+    useTitle('Login')
 
     const from = location.state?.from?.pathname || '/'
 
