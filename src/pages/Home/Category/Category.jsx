@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import SingleCategoryDeatils from "./SingleCategoryDeatils";
 const Category = () => {
   const [categories, setCategories] = useState([]);
 
@@ -44,6 +45,7 @@ const Category = () => {
           <h2 className="text-3xl font-bold text-center my-4 bg-red-500 rounded text-white py-4">{category.name}</h2>
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 px-2">
             {category.items.map((item, itemIndex) => (
+            
               <li className="flex w-full gap-4 items-center" key={itemIndex}>
                 <img className="h-52 w-60 rounded" src={item.image_url} alt={item.title} />
                 <div className="ms-2 space-y-4">
@@ -58,6 +60,15 @@ const Category = () => {
         </TabPanel>
       ))}
       </Tabs>
+
+      {
+        categories.map(category => {
+          category.items.map(item => <SingleCategoryDeatils
+          key={item.id}
+          item={item}
+          ></SingleCategoryDeatils>)
+        })
+      }
     </div>
   );
 };
