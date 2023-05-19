@@ -18,7 +18,7 @@ const Banner = () => {
           <h1 className="text-4xl font-bold my-2">Choose your favourite car <br /> Toys for our site</h1>
           <p className="text-gray-200">Toy cars can be used for all kinds of play: sensory play, learning, pretend play and outdoor time! So the next time your children get out their buckets of toy cars, roads, train tracks and vehicles of all sizes, shapes and colors, let these photos and ideas be an inspiration for your children!</p>
           <div className="mt-6 flex">
-          <input type="text" className="rounded-full py-2 px-4"/>
+          <input type="text" placeholder="Search Here" className="border border-red-500 rounded-full py-2 px-4"/>
           <input type="button" value="Search" className=" top-0 right-0 bg-red-500 px-8 py-2 rounded-full ms-2"/>
             </div>
           </div>
@@ -34,7 +34,7 @@ const Banner = () => {
           <h1 className="text-4xl font-bold my-2">Choose your favourite car <br /> Toys for our site</h1>
           <p className="text-gray-200">Toy cars can be used for all kinds of play: sensory play, learning, pretend play and outdoor time! So the next time your children get out their buckets of toy cars, roads, train tracks and vehicles of all sizes, shapes and colors, let these photos and ideas be an inspiration for your children!</p>
           <div className="mt-6 flex">
-          <input type="text" className="rounded-full py-2 px-4"/>
+          <input type="text" placeholder="Search Here" className="border border-red-500 rounded-full py-2 px-4"/>
           <input type="button" value="Search" className=" top-0 right-0 bg-red-500 px-8 py-2 rounded-full ms-2"/>
             </div>
           </div>
@@ -50,7 +50,7 @@ const Banner = () => {
           <h1 className="text-4xl font-bold my-2">Choose your favourite car <br /> Toys for our site</h1>
           <p className="text-gray-200">Toy cars can be used for all kinds of play: sensory play, learning, pretend play and outdoor time! So the next time your children get out their buckets of toy cars, roads, train tracks and vehicles of all sizes, shapes and colors, let these photos and ideas be an inspiration for your children!</p>
           <div className="mt-6 flex">
-          <input type="text" className="rounded-full py-2 px-4"/>
+          <input type="text" placeholder="Search Here" className="border border-red-500 rounded-full py-2 px-4"/>
           <input type="button" value="Search" className=" top-0 right-0 bg-red-500 px-8 py-2 rounded-full ms-2"/>
             </div>
           </div>
@@ -65,7 +65,7 @@ const Banner = () => {
           <h1 className="text-4xl font-bold my-2">Choose your favourite car <br /> Toys for our site</h1>
           <p className="text-gray-200">Toy cars can be used for all kinds of play: sensory play, learning, pretend play and outdoor time! So the next time your children get out their buckets of toy cars, roads, train tracks and vehicles of all sizes, shapes and colors, let these photos and ideas be an inspiration for your children!</p>
           <div className="mt-6 flex">
-          <input type="text" className="rounded-full py-2 px-4"/>
+          <input type="text" placeholder="Search Here" className="border border-red-500 rounded-full py-2 px-4"/>
           <input type="button" value="Search" className=" top-0 right-0 bg-red-500 px-8 py-2 rounded-full ms-2"/>
             </div>
           </div>
