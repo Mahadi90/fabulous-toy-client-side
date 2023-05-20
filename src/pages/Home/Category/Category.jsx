@@ -2,17 +2,29 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import toys1 from '../../../assets/images/sports.jpeg'
 import toys2 from '../../../assets/images/truckcar.jpeg'
 import toys3 from '../../../assets/images/carreg.webp'
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../providers/Authproviders";
+import Swal from "sweetalert2";
 
 const Category = () => {
+
+  const {user} = useContext(AuthContext)
 
   const [trucks, setTrucks] = useState([])
   const [sportCars, setSportCars] = useState([])
   const [regularCars, setRegularCars] = useState([])
+
+  const handleAlert = () => {
+    {!user ? Swal.fire({
+      icon: 'warning',
+      title: 'Oops Sorry',
+      text: 'You have to login to see deatils!',
+    }) : '' }
+  }
 
   useEffect(() => {
     AOS.init();
@@ -45,7 +57,7 @@ const Category = () => {
       </p>
 
       <Tabs>
-        <TabList className="grid grid-col-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <TabList className="grid grid-col-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
           <Tab className='w-full'>
             <div className="card card-compact w-96 bg-base-100 shadow-xl">
               <figure>
@@ -98,7 +110,7 @@ const Category = () => {
                 <p className="text-gray-500 font-semibold">Name: {item.title}</p>
                 <p className="text-gray-500 font-semibold">Price: ${item.price}</p>
                 <p className="text-gray-500 font-semibold">Rating: {item.rating}</p>
-                <Link to={`/singlecategory/${item._id}`}><button className="bg-red-500 mt-4 px-4 py-2 font-bold text-white">View details</button></Link>
+                <Link to={`/singlecategory/${item._id}`}><button onClick={handleAlert} className="bg-red-500 mt-4 px-4 py-2 font-bold text-white">View details</button></Link>
                 </div>
               </li>
             ))}
@@ -116,7 +128,7 @@ const Category = () => {
             <p className="text-gray-500 font-semibold">Name: {item.title}</p>
             <p className="text-gray-500 font-semibold">Price: ${item.price}</p>
             <p className="text-gray-500 font-semibold">Rating: {item.rating}</p>
-            <Link to={`/singlecategory3/${item._id}`}><button className="bg-red-500 px-4 mt-4 py-2 font-bold text-white">View details</button></Link>
+            <Link to={`/singlecategory3/${item._id}`}><button onClick={handleAlert} className="bg-red-500 px-4 mt-4 py-2 font-bold text-white">View details</button></Link>
             </div>
           </li>
         ))}
@@ -134,7 +146,7 @@ const Category = () => {
                 <p className="text-gray-500 font-semibold">Name: {item.title}</p>
                 <p className="text-gray-500 font-semibold">Price: ${item.price}</p>
                 <p className="text-gray-500 font-semibold">Rating: {item.rating}</p>
-                <Link to={`/singlecategory2/${item._id}`}><button className="bg-red-500 px-4 mt-4 py-2 font-bold text-white">View details</button></Link>
+                <Link to={`/singlecategory2/${item._id}`}><button onClick={handleAlert} className="bg-red-500 px-4 mt-4 py-2 font-bold text-white">View details</button></Link>
                 </div>
               </li>
             ))}

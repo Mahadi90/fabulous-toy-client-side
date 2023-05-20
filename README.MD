@@ -6,6 +6,8 @@
 #### Lottie Icon
 #### React Router
 #### Firebase Authentication
+#### MongoDB CRUP operation
+#### Vercel Deploy
 #### Contxet API
 #### SweetAlert2
 ##### And many more

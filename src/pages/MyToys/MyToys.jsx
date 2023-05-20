@@ -60,7 +60,7 @@ const MyToys = () => {
       <p className="text-center text-gray-600 font-semibold">
         All of your toys are here which are added by you.
       </p>
-
+       <p className="text-center text-2xl text-gray-600 font-semibold">The toys are baed on price of ascending sort</p>
       <div className="overflow-x-auto">
         <table className="table table-zebra w-full mt-4">
           {/* head */}
