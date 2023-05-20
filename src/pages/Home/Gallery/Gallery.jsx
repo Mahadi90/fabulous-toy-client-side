@@ -12,7 +12,7 @@ const Gallery = () => {
     const [galleries, setGalleries] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/gallery')
+        fetch('https://fabulous-toys-server.vercel.app/gallery')
         .then(res => res.json())
         .then(data => setGalleries(data))
     },[])

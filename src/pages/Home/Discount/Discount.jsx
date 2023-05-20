@@ -8,7 +8,7 @@ const Discount = () => {
   const [discountToys, setDiscountToys] = useState([])
 
   useEffect(() => {
-    fetch(`http://localhost:5000/gallery`)
+    fetch(`https://fabulous-toys-server.vercel.app/gallery`)
     .then(res => res.json())
     .then(data => {
         setDiscountToys(data)

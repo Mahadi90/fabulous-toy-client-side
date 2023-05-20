@@ -32,19 +32,19 @@ const Category = () => {
 
 
   useEffect(() => {
-    fetch('http://localhost:5000/trucktoys')
+    fetch('https://fabulous-toys-server.vercel.app/trucktoys')
     .then(res => res.json())
     .then(data => setTrucks(data))
   },[])
 
   useEffect(() => {
-    fetch('http://localhost:5000/regularcartoys')
+    fetch('https://fabulous-toys-server.vercel.app/regularcartoys')
     .then(res => res.json())
     .then(data => setRegularCars(data))
   },[])
 
   useEffect(() => {
-    fetch('http://localhost:5000/sportsCar')
+    fetch('https://fabulous-toys-server.vercel.app/sportsCar')
     .then(res => res.json())
     .then(data => setSportCars(data))
   },[])
