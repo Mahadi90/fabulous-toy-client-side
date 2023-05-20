@@ -12,10 +12,12 @@ const Gallery = () => {
     const [galleries, setGalleries] = useState([])
 
     useEffect(() => {
-        fetch('https://fabulous-toys-server.vercel.app/gallery')
+        fetch('http://localhost:5000/gallery')
         .then(res => res.json())
         .then(data => setGalleries(data))
     },[])
+
+    // console.log(galleries)
 
     useEffect(() => {
         AOS.init(); // Initialize AoS

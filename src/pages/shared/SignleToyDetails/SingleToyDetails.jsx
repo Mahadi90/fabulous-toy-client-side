@@ -4,7 +4,7 @@ import { useLoaderData } from "react-router-dom";
 const SingleToyDetails = () => {
   const toydeatils = useLoaderData();
 
-  console.log(toydeatils);
+  // console.log(toydeatils);
   return (
     <div className="my-8 mx-2 lg:mx-8">
       <h2 className="text-3xl font-bold text-center">

@@ -26,7 +26,7 @@ const handleAddToys = event => {
     const toyInfo = {toyName, photo, sellerName, email, price, rating, quantity, subCategory, detail}
     console.log(toyInfo)
 
-    fetch('https://fabulous-toys-server.vercel.app/cars', {
+    fetch('http://localhost:5000/cars', {
         method : 'POST',
         headers: {
             'content-type' : 'application/json'

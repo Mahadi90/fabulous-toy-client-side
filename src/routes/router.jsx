@@ -34,7 +34,7 @@ const router = createBrowserRouter([
             {
                 path: 'singleToydetails/:id',
                 element: <PrivateRotes><SingleToyDetails></SingleToyDetails></PrivateRotes>,
-                loader: ({params}) => fetch(`https://fabulous-toys-server.vercel.app/allToys/${params.id}`)
+                loader: ({params}) => fetch(`http://localhost:5000/allToys/${params.id}`)
             },
             {
                 path: 'addToy',
@@ -52,12 +52,22 @@ const router = createBrowserRouter([
             {
                 path: '/updateToy/:id',
                 element: <UpdateToy></UpdateToy>,
-                loader : ({params}) => fetch(`https://fabulous-toys-server.vercel.app/${params.id}`)
+                loader : ({params}) => fetch(`http://localhost:5000/${params.id}`)
             },
             {
                 path: '/singlecategory/:id',
-                element: <SingleCategoryDeatils></SingleCategoryDeatils>,
-                loader : ({params}) => fetch(`http://localhost:5000/category/${params.id}`)
+                element: <PrivateRotes><SingleCategoryDeatils></SingleCategoryDeatils></PrivateRotes>,
+                loader : ({params}) => fetch(`http://localhost:5000/sportsCar/${params.id}`)
+            },
+            {
+                path:'/singlecategory2/:id',
+                element: <PrivateRotes><SingleCategoryDeatils></SingleCategoryDeatils></PrivateRotes>,
+                loader : ({params}) => fetch(`http://localhost:5000/regularcartoys/${params.id}`)
+            },
+            {
+                path:'/singlecategory3/:id',
+                element: <PrivateRotes><SingleCategoryDeatils></SingleCategoryDeatils></PrivateRotes>,
+                loader : ({params}) => fetch(`http://localhost:5000/trucktoys/${params.id}`)
             },
             {
                 path: '/blog',

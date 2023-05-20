@@ -10,13 +10,13 @@ const AllToys = () => {
   useTitle('All Toys')
 
  useEffect(() => {
-    fetch('https://fabulous-toys-server.vercel.app/allToys')
+    fetch('http://localhost:5000/allToys')
     .then(res =>  res.json())
     .then(data => setAllToys(data))
  },[])
 
   const handleSearchToy = () => {
-    fetch(`https://fabulous-toys-server.vercel.app/toySearchByName/${searchText}`)
+    fetch(`http://localhost:5000/toySearchByName/${searchText}`)
     .then(res => res.json())
     .then(data => setAllToys(data))
   }

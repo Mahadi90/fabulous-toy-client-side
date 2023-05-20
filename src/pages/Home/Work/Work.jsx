@@ -8,7 +8,7 @@ import 'aos/dist/aos.css';
 const Work = () => {
 
     useEffect(() => {
-        AOS.init(); // Initialize AoS
+        AOS.init();
       }, []);
   return (
     <div data-aos="fade-left" className="my-8">
