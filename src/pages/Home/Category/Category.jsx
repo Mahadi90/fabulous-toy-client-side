@@ -107,8 +107,8 @@ const Category = () => {
               <li className="flex w-full gap-4 items-center" key={item._id}>
                 <img className="h-52 w-60 rounded" src={item.picture} alt={item.name} />
                 <div className="ms-2 space-y-4">
-                <p className="text-gray-500 font-semibold">Name: {item.title}</p>
-                <p className="text-gray-500 font-semibold">Price: ${item.price}</p>
+                <p className="text-gray-500 font-semibold">Name: {item.name}</p>
+                <p className="text-gray-500 font-semibold">Price: {item.price}</p>
                 <p className="text-gray-500 font-semibold">Rating: {item.rating}</p>
                 <Link to={`/singlecategory/${item._id}`}><button onClick={handleAlert} className="bg-red-500 mt-4 px-4 py-2 font-bold text-white">View details</button></Link>
                 </div>
@@ -125,8 +125,8 @@ const Category = () => {
           <li className="flex w-full gap-4 items-center" key={item._id}>
             <img className="h-52 w-60 rounded" src={item.picture} alt={item.name} />
             <div className="ms-2 space-y-4">
-            <p className="text-gray-500 font-semibold">Name: {item.title}</p>
-            <p className="text-gray-500 font-semibold">Price: ${item.price}</p>
+            <p className="text-gray-500 font-semibold">Name: {item.name}</p>
+            <p className="text-gray-500 font-semibold">Price: {item.price}</p>
             <p className="text-gray-500 font-semibold">Rating: {item.rating}</p>
             <Link to={`/singlecategory3/${item._id}`}><button onClick={handleAlert} className="bg-red-500 px-4 mt-4 py-2 font-bold text-white">View details</button></Link>
             </div>
@@ -143,8 +143,8 @@ const Category = () => {
               <li className="flex w-full gap-4 items-center" key={item._id}>
                 <img className="h-52 w-60 rounded" src={item.picture} alt={item.name} />
                 <div className="ms-2 space-y-4">
-                <p className="text-gray-500 font-semibold">Name: {item.title}</p>
-                <p className="text-gray-500 font-semibold">Price: ${item.price}</p>
+                <p className="text-gray-500 font-semibold">Name: {item.name}</p>
+                <p className="text-gray-500 font-semibold">Price: {item.price}</p>
                 <p className="text-gray-500 font-semibold">Rating: {item.rating}</p>
                 <Link to={`/singlecategory2/${item._id}`}><button onClick={handleAlert} className="bg-red-500 px-4 mt-4 py-2 font-bold text-white">View details</button></Link>
                 </div>

@@ -72,7 +72,7 @@ const AllToys = () => {
           </tbody>
         </table>
         {rowsToShow < allToys.length && (
-        <button className="btn btn-block" onClick={handleShowMore}>Show More</button>
+        <button className="btn btn-block mt-4" onClick={handleShowMore}>Show More</button>
       )}
       </div>
     </div>
